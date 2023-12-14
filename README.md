@@ -6,7 +6,7 @@
 
 [MassDNS]((https://github.com/blechschmidt/massdns)) wrapper for node.js
 
-This package dit not ready yet. We'll be ready soon.
+**THIS PACKAGE DIT NOT READY YET. WE'LL BE READY SOON.**
 
 - [node-massdns](#node-massdns)
   - [Requirements](#requirements)
@@ -16,7 +16,7 @@ This package dit not ready yet. We'll be ready soon.
 ## Requirements
 - node.js >= v16.x
 - [massdns binary](https://github.com/blechschmidt/massdns)
-  Tested using up-to-date master branch or latest release (massdns v1.0.0)
+  Tested using up-to-date master branch and latest release (massdns v1.0.0)
 
 ## Installation
 ```shell
