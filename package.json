@@ -1,0 +1,36 @@
+{
+  "name": "massdns",
+  "version": "0.0.1",
+  "description": "MassDNS wrapper for node.js",
+  "main": "./lib/index.js",
+  "module": "./lib/index.js",
+  "scripts": {
+    "test": "mocha --bail --recursive test",
+    "test-watch": "mocha --watch --bail --recursive test",
+    "postversion": "git push && git push --tags",
+    "version": "auto-changelog -p && git add CHANGELOG.md"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kucingbasah737/node-massdns.git"
+  },
+  "keywords": [
+    "massdns",
+    "dns"
+  ],
+  "author": "Kucing Basah 737 <kucingbasah737@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kucingbasah737/node-massdns/issues"
+  },
+  "homepage": "https://github.com/kucingbasah737/node-massdns#readme",
+  "devDependencies": {
+    "auto-changelog": "^2.4.0",
+    "mocha": "^10.2.0",
+    "semistandard": "^17.0.0",
+    "should": "^13.2.3"
+  },
+  "engines": {
+    "node": ">=16"
+  }
+}
