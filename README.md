@@ -2,3 +2,6 @@
 MassDNS wrapper for node.js
 
 We'll be ready soon.
+
+## Requirements
+- massdns binary
