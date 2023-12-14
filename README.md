@@ -11,6 +11,7 @@ This package dit not ready yet. We'll be ready soon.
 - [node-massdns](#node-massdns)
   - [Requirements](#requirements)
   - [Installation](#installation)
+  - [See also](#see-also)
 
 ## Requirements
 - node.js >= v16.x
@@ -21,3 +22,6 @@ This package dit not ready yet. We'll be ready soon.
 ```shell
 npm i massdns
 ```
+
+## See also
+- [node-crtsh](https://github.com/kucingbasah737/node-crtsh): query crt.sh from node.js
