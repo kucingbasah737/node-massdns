@@ -103,9 +103,14 @@ module.exports = async (hostnames, options) => {
     `-r ${resolverFile}`,
     '-o J',
     `--outfile ${outFile}`,
-    `-l ${logFile}`,
-    inputFile
+    `-l ${logFile}`
   ];
+
+  if (options?.hashMapSize) {
+    cmdItems.push(`-s ${options.hashMapSize}`);
+  }
+
+  cmdItems.join(inputFile);
 
   try {
     await exec(cmdItems.join(' '));
