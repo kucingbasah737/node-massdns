@@ -84,6 +84,7 @@ module.exports = async (hostnames, options) => {
   }
 
   const inputFile = path.join(tempDir, 'input.txt');
+  const outFile = path.join(tempDir, 'output.ndjson');
 
   try {
     await fs.writeFile(inputFile, (hostnames || []).filter((item) => item).join('\n'));
@@ -101,16 +102,20 @@ module.exports = async (hostnames, options) => {
     '-q',
     `-r ${resolverFile}`,
     '-o J',
+    `--outfile ${outFile}`,
     `-l ${logFile}`,
     inputFile
   ];
 
   try {
-    const { stdout } = await exec(cmdItems.join(' '));
+    await exec(cmdItems.join(' '));
 
     const result = [];
-    stdout
-      .split('\n')
+
+    (await fs.readFile(outFile))
+      .toString()
+      .trim()
+      .split(/\s*\n\s*/)
       .filter((line) => line)
       .map((line) => JSON.parse(line))
       .map((line) => result.push(line));
