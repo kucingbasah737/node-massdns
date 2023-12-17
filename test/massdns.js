@@ -46,6 +46,7 @@ describe('#massdns', () => {
       result = await massdns(
         hostnames,
         {
+          bin: path.join(__dirname, '..', 'test-data', 'massdns'),
           tempDir,
           resolverFile
         }
