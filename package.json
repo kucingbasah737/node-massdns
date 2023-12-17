@@ -1,6 +1,6 @@
 {
   "name": "massdns",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "MassDNS wrapper for node.js",
   "main": "./src/index.js",
   "module": "./src/index.js",
