@@ -6,3 +6,4 @@ examples/
 npmignore-list
 test/
 test-data/
+CHANGELOG.md
