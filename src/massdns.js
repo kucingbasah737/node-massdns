@@ -110,7 +110,7 @@ module.exports = async (hostnames, options) => {
     cmdItems.push(`-s ${options.hashMapSize}`);
   }
 
-  cmdItems.join(inputFile);
+  cmdItems.push(inputFile);
 
   try {
     await exec(cmdItems.join(' '));
