@@ -33,5 +33,10 @@
   },
   "engines": {
     "node": ">=16"
+  },
+  "auto-changelog": {
+    "commitUrl": "https://github.com/kucingbasah737/node-massdns/commit/{id}",
+    "compareUrl": "https://github.com/kucingbasah737/node-massdns/compare/{from}...{to}",
+    "issueUrl": "https://github.com/kucingbasah737/node-massdns/issues/{id}"
   }
 }
