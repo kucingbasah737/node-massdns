@@ -6,11 +6,10 @@
 
 [MassDNS]((https://github.com/blechschmidt/massdns)) wrapper for node.js
 
-**THIS PACKAGE DIT NOT READY YET. WE'LL BE READY SOON.**
-
 - [node-massdns](#node-massdns)
   - [Requirements](#requirements)
   - [Installation](#installation)
+  - [Usage](#usage)
   - [See also](#see-also)
 
 ## Requirements
@@ -23,5 +22,17 @@
 npm i massdns
 ```
 
+## Usage
+```javascript
+const { massdns, lookup } = require('massdns');
+
+(async () => {
+  const massdnsResults = await massdns(['example.org', 'www.github.com'], { resolvers: ['8.8.8.8', '8.8.4.4', '1.1.1.1'] });
+
+  lookup('example.org', massdnsResults);
+  lookup('www.github.com', massdnsResults);
+})();
+
+```
 ## See also
 - [node-crtsh](https://github.com/kucingbasah737/node-crtsh): query crt.sh from node.js
