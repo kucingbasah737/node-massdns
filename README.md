@@ -30,7 +30,19 @@ npm i massdns
 const { massdns, lookup } = require('massdns');
 
 (async () => {
-  const massdnsResults = await massdns(['example.org', 'www.github.com'], { resolvers: ['8.8.8.8', '8.8.4.4', '1.1.1.1'] });
+  const massdnsResults = await massdns(
+    [
+      'example.org',
+      'www.github.com'
+    ],
+    {
+      resolvers: [
+        '8.8.8.8',
+        '8.8.4.4',
+        '1.1.1.1'
+      ]
+    }
+  );
 
   lookup('example.org', massdnsResults);
   lookup('www.github.com', massdnsResults);
