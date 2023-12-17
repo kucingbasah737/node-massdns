@@ -51,25 +51,17 @@ describe('#massdns', () => {
         }
       );
 
-      if (process.env.DEBUG) {
-        console.log(JSON.stringify(result, null, 2));
-        await fs.writeFile(
-          path.join(__dirname, '..', 'tmp', 'test', 'massdns-result.json'),
-          JSON.stringify(result, null, 2)
-        );
-      }
-
       resolvers = (await fs.readFile(resolverFile)).toString().split('\n');
       resultUsingResolversOption = await massdns(['example.org'], { resolvers });
     } catch (e) {
-      console.log('Exception');
-      console.log('E.CODE: ', e.code);
-      console.log('E.MESSAGE: ', e.message || e.toString);
-      console.log('');
-      console.log('ORIGINAL E.CODE: ', e.originalError?.code);
-      console.log('ORIGINAL E.MESSAGE: ', e.originalError?.message || e.originalError?.toString());
-      console.log('');
-      console.log('PWD: ', e.pwd);
+      console.warn('Exception');
+      console.warn('E.CODE: ', e.code);
+      console.warn('E.MESSAGE: ', e.message || e.toString);
+      console.warn('');
+      console.warn('ORIGINAL E.CODE: ', e.originalError?.code);
+      console.warn('ORIGINAL E.MESSAGE: ', e.originalError?.message || e.originalError?.toString());
+      console.warn('');
+      console.warn('PWD: ', e.pwd);
     }
   });
 
