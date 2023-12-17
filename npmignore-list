@@ -1,0 +1,8 @@
+
+# please do not delete empty blank line above
+.github/
+.vscode/
+examples/
+npmignore-list
+test/
+test-data/
