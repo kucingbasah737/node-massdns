@@ -13,6 +13,7 @@
   - [Requirements](#requirements)
   - [Installation](#installation)
   - [Usage](#usage)
+  - [Changelog](#changelog)
   - [See also](#see-also)
 
 ## Requirements
@@ -49,5 +50,9 @@ const { massdns, lookup } = require('massdns');
 })();
 
 ```
+
+## Changelog
+See [CHANGELOG.md](CHANGELOG.md) file.
+
 ## See also
 - [node-crtsh](https://github.com/kucingbasah737/node-crtsh): query crt.sh from node.js
