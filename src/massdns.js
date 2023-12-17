@@ -2,6 +2,7 @@ const fs = require('fs/promises');
 const util = require('node:util');
 const { tmpdir } = require('node:os');
 const path = require('node:path');
+const dayjs = require('dayjs');
 
 const errorCodes = require('./error-codes');
 
@@ -62,7 +63,7 @@ const exec = util.promisify(require('node:child_process').exec);
  * @returns {Promise<MassDnsResultItem[]>}
  */
 module.exports = async (hostnames, options) => {
-  const tempDir = options?.tempDir || await fs.mkdtemp(path.join(tmpdir(), 'node-massdns-'));
+  const tempDir = options?.tempDir || await fs.mkdtemp(path.join(tmpdir(), `node-massdns-${dayjs().format('YYYYMMDDHHmmss')}-`));
 
   let resolverFile = options?.resolverFile;
   if (!resolverFile) {
