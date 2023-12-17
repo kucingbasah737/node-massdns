@@ -1,7 +1,10 @@
 # node-massdns
 
+[![Version npm](https://img.shields.io/npm/v/massdns.svg)](https://www.npmjs.com/package/massdns)
+[![node.js version](https://img.shields.io/node/v/massdns)](https://www.npmjs.com/package/massdns)
 [![Module type: CJS](https://img.shields.io/badge/module%20type-cjs-brightgreen)](https://github.com/voxpelli/badges-cjs-esm)
 [![js-semistandard-style](https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg)](https://github.com/standard/semistandard)
+[![Unit test status](https://github.com/kucingbasah737/node-massdns/actions/workflows/node.js.yml/badge.svg)](https://github.com/kucingbasah737/node-massdns/actions/workflows/node.js.yml?query=branch%3Amain)
 [![License](https://img.shields.io/github/license/kucingbasah737/node-crtsh)](https://github.com/kucingbasah737/node-massdns/blob/main/LICENSE)
 
 [MassDNS]((https://github.com/blechschmidt/massdns)) wrapper for node.js
