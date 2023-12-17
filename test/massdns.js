@@ -33,27 +33,20 @@ describe('#massdns', () => {
   let resolvers;
 
   before(async () => {
-    const tempDir = path.join(__dirname, '..', 'tmp', 'test');
-    try {
-      await fs.stat(tempDir);
-    } catch (e) {
-      await fs.mkdir(tempDir, { recursive: true });
-    }
-
+    const bin = path.join(__dirname, '..', 'test-data', 'massdns');
     const resolverFile = path.join(__dirname, '..', 'test-data/resolvers.txt');
 
     try {
       result = await massdns(
         hostnames,
         {
-          bin: path.join(__dirname, '..', 'test-data', 'massdns'),
-          tempDir,
+          bin,
           resolverFile
         }
       );
 
       resolvers = (await fs.readFile(resolverFile)).toString().split('\n');
-      resultUsingResolversOption = await massdns(['example.org'], { resolvers });
+      resultUsingResolversOption = await massdns(['example.org'], { bin, resolvers });
     } catch (e) {
       console.warn('Exception');
       console.warn('E.CODE: ', e.code);
