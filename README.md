@@ -5,6 +5,7 @@
 [![node.js version](https://img.shields.io/node/v/massdns)](https://www.npmjs.com/package/massdns)
 [![Module type: CJS](https://img.shields.io/badge/module%20type-cjs-brightgreen)](https://github.com/voxpelli/badges-cjs-esm)
 [![js-semistandard-style](https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg)](https://github.com/standard/semistandard)
+[![jsDocs.io](https://img.shields.io/badge/jsDocs.io-reference-blue)](https://www.jsdocs.io/package/jsdoc)
 [![Unit test status](https://github.com/kucingbasah737/node-massdns/actions/workflows/node.js.yml/badge.svg)](https://github.com/kucingbasah737/node-massdns/actions/workflows/node.js.yml?query=branch%3Amain)
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/massdns)
 ![npm bundle size](https://img.shields.io/bundlephobia/min/massdns)
