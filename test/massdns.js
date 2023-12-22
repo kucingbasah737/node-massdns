@@ -1,4 +1,6 @@
-/* global describe, it, before */
+/* global describe, it, before, after */
+
+const DUMP_RESULT = process.env.DUMP_RESULT;
 
 require('should');
 const path = require('node:path');
@@ -78,6 +80,13 @@ describe('#massdns', () => {
   });
 
   describe('lookup', () => {
+    after(() => {
+      if (DUMP_RESULT) {
+        console.log(JSON.stringify(lookup('example.org', result), null, 2));
+        console.log(JSON.stringify(lookup('www.github.com', result), null, 2));
+      }
+    });
+
     it('should lookup and return correct value', () => {
       lookup('example.org', result)
         .should.containDeep([{ name: 'example.org.', type: 'A' }]);

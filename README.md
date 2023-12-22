@@ -49,7 +49,35 @@ const { massdns, lookup } = require('massdns');
   );
 
   lookup('example.org', massdnsResults);
+  // will return like:
+  // [
+  //   {
+  //     "ttl": 2095,
+  //     "type": "A",
+  //     "class": "IN",
+  //     "name": "example.org.",
+  //     "data": "93.184.216.34"
+  //   }
+  // ]
+
   lookup('www.github.com', massdnsResults);
+  // will return like:
+  // [
+  //   {
+  //     "ttl": 3199,
+  //     "type": "CNAME",
+  //     "class": "IN",
+  //     "name": "www.github.com.",
+  //     "data": "github.com."
+  //   },
+  //   {
+  //     "ttl": 60,
+  //     "type": "A",
+  //     "class": "IN",
+  //     "name": "github.com.",
+  //     "data": "20.205.243.166"
+  //   }
+  // ]
 })();
 
 ```
