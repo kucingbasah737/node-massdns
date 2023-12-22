@@ -21,6 +21,7 @@
     - [Result example](#result-example)
       - [massdns](#massdns)
       - [lookup('www.gihub.com', massdnsResults)](#lookupwwwgihubcom-massdnsresults)
+  - [Known issues](#known-issues)
   - [Changelog](#changelog)
   - [See also](#see-also)
 
@@ -196,6 +197,18 @@ const { massdns, lookup } = require('massdns');
   }
 ]
 ```
+
+## Known issues
+MassDNS is very fast and has very little memory footprint. But using this wrapper might produce high memory usage
+(around 400-500 MB for 100k hostnames) because this wrapper wraps the result in ready to use json so you can traverse
+it just like a standard array of object in javascript. Passing big object on javascript would also have big impact,
+but I think it's still acceptable on my use.
+
+I have consider to pass result as file (not passing result as array of object values),
+but I think it just defeat our goal to provide easy to access MassDNS result.
+
+Let me know if you have any consideration or recomendation. Please raise an issue.
+I will very happy if there is someone has interest and care of this package.
 
 ## Changelog
 See [CHANGELOG.md](CHANGELOG.md) file.
