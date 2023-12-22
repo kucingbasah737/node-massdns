@@ -16,6 +16,9 @@
   - [Requirements](#requirements)
   - [Installation](#installation)
   - [Usage](#usage)
+    - [Result example](#result-example)
+      - [massdns](#massdns)
+      - [lookup('www.gihub.com', massdnsResults)](#lookupwwwgihubcom-massdnsresults)
   - [Changelog](#changelog)
   - [See also](#see-also)
 
@@ -49,37 +52,140 @@ const { massdns, lookup } = require('massdns');
   );
 
   lookup('example.org', massdnsResults);
-  // will return like:
-  // [
-  //   {
-  //     "ttl": 2095,
-  //     "type": "A",
-  //     "class": "IN",
-  //     "name": "example.org.",
-  //     "data": "93.184.216.34"
-  //   }
-  // ]
-
   lookup('www.github.com', massdnsResults);
-  // will return like:
-  // [
-  //   {
-  //     "ttl": 3199,
-  //     "type": "CNAME",
-  //     "class": "IN",
-  //     "name": "www.github.com.",
-  //     "data": "github.com."
-  //   },
-  //   {
-  //     "ttl": 60,
-  //     "type": "A",
-  //     "class": "IN",
-  //     "name": "github.com.",
-  //     "data": "20.205.243.166"
-  //   }
-  // ]
 })();
 
+```
+
+### Result example
+
+#### massdns
+```json
+[
+  {
+    "name": "example.org.",
+    "type": "A",
+    "class": "IN",
+    "status": "NOERROR",
+    "rx_ts": 1703233801103924700,
+    "data": {
+      "answers": [
+        {
+          "ttl": 1633,
+          "type": "A",
+          "class": "IN",
+          "name": "example.org.",
+          "data": "93.184.216.34"
+        }
+      ]
+    },
+    "flags": [
+      "rd",
+      "ra"
+    ],
+    "resolver": "8.8.4.4:53",
+    "proto": "UDP"
+  },
+  {
+    "name": "www.example.org.",
+    "type": "A",
+    "class": "IN",
+    "status": "NOERROR",
+    "rx_ts": 1703233801108079900,
+    "data": {
+      "answers": [
+        {
+          "ttl": 15373,
+          "type": "A",
+          "class": "IN",
+          "name": "www.example.org.",
+          "data": "93.184.216.34"
+        }
+      ]
+    },
+    "flags": [
+      "rd",
+      "ra"
+    ],
+    "resolver": "8.8.4.4:53",
+    "proto": "UDP"
+  },
+  {
+    "name": "www.github.com.",
+    "type": "A",
+    "class": "IN",
+    "status": "NOERROR",
+    "rx_ts": 1703233801111802600,
+    "data": {
+      "answers": [
+        {
+          "ttl": 3487,
+          "type": "CNAME",
+          "class": "IN",
+          "name": "www.github.com.",
+          "data": "github.com."
+        },
+        {
+          "ttl": 60,
+          "type": "A",
+          "class": "IN",
+          "name": "github.com.",
+          "data": "140.82.112.3"
+        }
+      ]
+    },
+    "flags": [
+      "rd",
+      "ra"
+    ],
+    "resolver": "8.8.4.4:53",
+    "proto": "UDP"
+  },
+  {
+    "name": "asd.am21l32ml2.com.",
+    "type": "A",
+    "class": "IN",
+    "status": "NXDOMAIN",
+    "rx_ts": 1703233801120768500,
+    "data": {
+      "authorities": [
+        {
+          "ttl": 900,
+          "type": "SOA",
+          "class": "IN",
+          "name": "com.",
+          "data": "a.gtld-servers.net. nstld.verisign-grs.com. 1703233784 1800 900 604800 86400"
+        }
+      ]
+    },
+    "flags": [
+      "rd",
+      "ra"
+    ],
+    "resolver": "8.8.4.4:53",
+    "proto": "UDP"
+  }
+]
+```
+
+#### lookup('www.gihub.com', massdnsResults)
+```json
+[
+  {
+    "ttl": 3487,
+    "type": "CNAME",
+    "class": "IN",
+    "name": "www.github.com.",
+    "data": "github.com."
+  },
+  {
+    "ttl": 60,
+    "type": "A",
+    "class": "IN",
+    "name": "github.com.",
+    "data": "140.82.112.3"
+  }
+]
 ```
 
 ## Changelog

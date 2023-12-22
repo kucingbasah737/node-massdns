@@ -62,6 +62,11 @@ describe('#massdns', () => {
   });
 
   describe('massdns', () => {
+    after(() => {
+      console.log('massdns result:');
+      console.log(JSON.stringify(result, null, 2));
+    });
+
     it('should executed and return correct value', () => {
       Array.isArray(result).should.true('result is an array');
 
@@ -82,7 +87,12 @@ describe('#massdns', () => {
   describe('lookup', () => {
     after(() => {
       if (DUMP_RESULT) {
+        console.log();
+        console.log("lookup('example.org', result):");
         console.log(JSON.stringify(lookup('example.org', result), null, 2));
+
+        console.log();
+        console.log("lookup('www.github.com', result):");
         console.log(JSON.stringify(lookup('www.github.com', result), null, 2));
       }
     });
