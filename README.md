@@ -9,7 +9,7 @@
 [![Unit test status](https://github.com/kucingbasah737/node-massdns/actions/workflows/node.js.yml/badge.svg)](https://github.com/kucingbasah737/node-massdns/actions/workflows/node.js.yml?query=branch%3Amain)
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/massdns)
 ![npm bundle size](https://img.shields.io/bundlephobia/min/massdns)
-[![License](https://img.shields.io/github/license/kucingbasah737/node-crtsh)](https://github.com/kucingbasah737/node-massdns/blob/main/LICENSE)
+[![License](https://img.shields.io/github/license/kucingbasah737/node-massdns)](https://github.com/kucingbasah737/node-massdns/blob/main/LICENSE)
 
 [MassDNS]((https://github.com/blechschmidt/massdns)) wrapper for node.js
 
