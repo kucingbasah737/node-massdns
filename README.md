@@ -2,6 +2,7 @@
 
 [![Version npm](https://img.shields.io/npm/v/massdns.svg)](https://www.npmjs.com/package/massdns)
 [![Npm package total downloads](https://img.shields.io/npm/dt/massdns)](https://npmjs.com/package/massdns)
+![Visitors](https://api.visitorbadge.io/api/combined?path=https%3A%2F%2Fgithub.com%2Fkucingbasah737%2Fnode-massdns&countColor=%234cc71e&style=flat)
 [![node.js version](https://img.shields.io/node/v/massdns)](https://www.npmjs.com/package/massdns)
 [![Module type: CJS](https://img.shields.io/badge/module%20type-cjs-brightgreen)](https://github.com/voxpelli/badges-cjs-esm)
 [![js-semistandard-style](https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg)](https://github.com/standard/semistandard)
