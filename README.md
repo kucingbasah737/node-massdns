@@ -201,7 +201,7 @@ const { massdns, lookup } = require('massdns');
 ```
 
 ### returnAsKeyValueObject option
-Looking up item on big array is inefficient. For processing big result, consider to use "returnAsKeyValueObject" options.
+Looking up item on big array is inefficient. For processing big result, consider to use "returnAsKeyValueObject" option.
 Return value will be a key-value object so you can lookup easily without "lookup" method in more efficient.
 
 ```javascript
