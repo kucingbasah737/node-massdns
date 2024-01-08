@@ -53,6 +53,7 @@ const exec = util.promisify(require('node:child_process').exec);
  * @property {boolean} [preserveTempDir] - do not delete temp dir at end, default to true if tempDir specified and false if tempDir not specified
  * @property {string} [logFile] - massdns log file
  * @property {number} [hashMapSize] - optional number of concurent lookup, will use massdns default if not specified (10000)
+ * @property {boolean} [returnAsKeyValueObject] - if it is set to true, will return key-value object instead of array of MassDnsResultItem
  */
 
 /**
@@ -60,7 +61,7 @@ const exec = util.promisify(require('node:child_process').exec);
  *
  * @param {string[]} hostnames
  * @param {MassDNSOptions} [options] - at lease specify resolvers or resolverFile
- * @returns {Promise<MassDnsResultItem[]>}
+ * @returns {Promise<MassDnsResultItem[]|object>}
  */
 module.exports = async (hostnames, options) => {
   const tempDir = options?.tempDir || await fs.mkdtemp(path.join(tmpdir(), `node-massdns-${dayjs().format('YYYYMMDDHHmmss')}-`));
@@ -117,6 +118,7 @@ module.exports = async (hostnames, options) => {
     await exec(cmdItems.join(' '));
 
     const result = [];
+    const keyValues = {};
 
     (await fs.readFile(outFile))
       .toString()
@@ -124,12 +126,21 @@ module.exports = async (hostnames, options) => {
       .split(/\s*\n\s*/)
       .filter((line) => line)
       .map((line) => JSON.parse(line))
-      .map((line) => result.push(line));
+      .map((line) => {
+        if (options?.returnAsKeyValueObject) {
+          keyValues[line.name] = line;
+        } else {
+          result.push(line);
+        }
+        return null;
+      });
 
     // destroy temp dir if tempDir and preserveTempDir not specified by caller
     if (!options?.tempDir && !options?.preserveTempDir) {
       await fs.rm(tempDir, { recursive: true });
     }
+
+    if (options?.returnAsKeyValueObject) return keyValues;
 
     return result;
   } catch (e) {

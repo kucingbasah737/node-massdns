@@ -22,6 +22,7 @@
     - [Result example](#result-example)
       - [massdns](#massdns)
       - [lookup('www.gihub.com', massdnsResults)](#lookupwwwgihubcom-massdnsresults)
+    - [returnAsKeyValueObject option](#returnaskeyvalueobject-option)
   - [Known issues](#known-issues)
   - [Changelog](#changelog)
   - [See also](#see-also)
@@ -197,6 +198,62 @@ const { massdns, lookup } = require('massdns');
     "data": "140.82.112.3"
   }
 ]
+```
+
+### returnAsKeyValueObject option
+Looking up item on big array is inefficient. For processing big result, consider to use "returnAsKeyValueObject" options.
+Return value will be a key-value object so you can lookup easily without "lookup" method in more efficient.
+
+```javascript
+const { massdns, lookup } = require('massdns');
+
+(async () => {
+  const massdnsResults = await massdns(
+    [
+      'example.org',
+      'www.github.com'
+    ],
+    {
+      resolvers: [
+        '8.8.8.8',
+        '8.8.4.4',
+        '1.1.1.1'
+      ],
+      returnAsKeyValueObject: true
+    }
+  );
+})();
+
+```
+
+Will return:
+```json
+{
+  "example.org.": {
+    "name": "example.org.",
+    "type": "A",
+    "class": "IN",
+    "status": "NOERROR",
+    "rx_ts": 1703233801103924700,
+    "data": {
+      "answers": [
+        {
+          "ttl": 1633,
+          "type": "A",
+          "class": "IN",
+          "name": "example.org.",
+          "data": "93.184.216.34"
+        }
+      ]
+    },
+    "flags": [
+      "rd",
+      "ra"
+    ],
+    "resolver": "8.8.4.4:53",
+    "proto": "UDP"
+  }
+}
 ```
 
 ## Known issues
