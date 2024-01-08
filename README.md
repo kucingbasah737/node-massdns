@@ -252,6 +252,37 @@ Will return:
     ],
     "resolver": "8.8.4.4:53",
     "proto": "UDP"
+  },
+  "www.github.com": {
+    "name": "www.github.com.",
+    "type": "A",
+    "class": "IN",
+    "status": "NOERROR",
+    "rx_ts": 1703233801111802600,
+    "data": {
+      "answers": [
+        {
+          "ttl": 3487,
+          "type": "CNAME",
+          "class": "IN",
+          "name": "www.github.com.",
+          "data": "github.com."
+        },
+        {
+          "ttl": 60,
+          "type": "A",
+          "class": "IN",
+          "name": "github.com.",
+          "data": "140.82.112.3"
+        }
+      ]
+    },
+    "flags": [
+      "rd",
+      "ra"
+    ],
+    "resolver": "8.8.4.4:53",
+    "proto": "UDP"
   }
 }
 ```
@@ -267,6 +298,8 @@ but I think it just defeat our goal to provide easy to access MassDNS result.
 
 Let me know if you have any consideration or recomendation. Please raise an issue.
 I will very happy if there is someone has interest and care of this package.
+
+If you want to lookup on big result, use returnAsKeyValueObject option. It will improve lookup speed dramatically.
 
 ## Changelog
 See [CHANGELOG.md](CHANGELOG.md) file.
