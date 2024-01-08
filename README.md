@@ -23,6 +23,10 @@
       - [massdns](#massdns)
       - [lookup('www.gihub.com', massdnsResults)](#lookupwwwgihubcom-massdnsresults)
     - [returnAsKeyValueObject option](#returnaskeyvalueobject-option)
+  - [API](#api)
+    - [massdns(hostnames, \[options\])](#massdnshostnames-options)
+      - [hostnames: array of hostname string](#hostnames-array-of-hostname-string)
+      - [options: optional object](#options-optional-object)
   - [Known issues](#known-issues)
   - [Changelog](#changelog)
   - [See also](#see-also)
@@ -286,7 +290,39 @@ Will return:
   }
 }
 ```
+## API
+### massdns(hostnames, [options])
 
+```javascript
+/**
+ * Call massdns
+ *
+ * @param {string[]} hostnames
+ * @param {MassDNSOptions} [options] - at lease specify resolvers or resolverFile
+ * @returns {Promise<MassDnsResultItem[]|object>}
+ */
+async (hostnames, options);
+
+```
+#### hostnames: array of hostname string
+
+#### options: optional object
+```javascript
+/**
+ * @typedef MassDNSOptions
+ * @type {object}
+ *
+ * @property {string} [bin] - massdns binary file to use, will use "massdns" from $PATH if not specified
+ * @property {string[]} [resolvers] - resolvers to use, ignored if resolverFile option specifed
+ * @property {string} [resolverFile] - file containing resolvers, will override resolvers option
+ * @property {string} [tempDir] - temp dir, will use temp dir from OS if not specified
+ * @property {boolean} [preserveTempDir] - do not delete temp dir at end, default to true if tempDir specified and false if tempDir not specified
+ * @property {string} [logFile] - massdns log file
+ * @property {number} [hashMapSize] - optional number of concurent lookup, will use massdns default if not specified (10000)
+ * @property {boolean} [returnAsKeyValueObject] - if it is set to true, will return key-value object instead of array of MassDnsResultItem
+ */
+```
+  
 ## Known issues
 MassDNS is very fast and has very little memory footprint. But using this wrapper might produce high memory usage
 (around 400-500 MB for 100k hostnames) because this wrapper wraps the result in ready to use json so you can traverse
